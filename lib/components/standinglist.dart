@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:gulfgoal/components/standingslist.dart';
+import 'package:gulfgoal/config/mediaqueryconfig.dart';
+
+class Standinglist extends StatefulWidget {
+  final List data;
+
+  const Standinglist({Key key, this.data}) : super(key: key);
+  @override
+  _StandinglistState createState() => _StandinglistState();
+}
+
+class _StandinglistState extends State<Standinglist> {
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: Container(
+        height: SizeConfig.blockSizeVertical * 72,
+        decoration: BoxDecoration(boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Colors.black12, blurRadius: 15.0, offset: Offset(0.0, .75))
+        ], color: Colors.white),
+        child: ListView(
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Text(
+                          'Pos',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Club',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'PL',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'W',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'D',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'L',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'Gf',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'GA',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                        Text(
+                          'Pts',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'cairo',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            buildTable(widget.data),
+          ],
+        ),
+      ),
+    );
+  }
+}
