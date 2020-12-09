@@ -89,7 +89,7 @@ class _TrendlistState extends State<Trendlist> {
     return Column(
       children: [
         Container(
-          height: SizeConfig.blockSizeVertical * 30,
+          height: SizeConfig.blockSizeVertical * 35,
           width: double.infinity,
           child: PageView(
             onPageChanged: (value) {

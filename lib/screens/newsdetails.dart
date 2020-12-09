@@ -132,7 +132,7 @@ class Newsdetails extends StatelessWidget {
                 height: 20,
               ),
               Hero(
-                tag: "hero",
+                tag: news.image,
                 child: Image(
                   image: new NetworkImageWithRetry(
                     news.image,

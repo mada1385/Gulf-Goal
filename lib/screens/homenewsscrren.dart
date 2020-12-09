@@ -148,17 +148,20 @@ class _HomenewsscreenState extends State<Homenewsscreen> {
                         }
                       }, // here we will buil the app layout
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Boldaccectcolor(
-                            text: "اخر الاخبار",
-                          ),
-                        ],
+                    Container(
+                      color: Colors.transparent,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Boldaccectcolor(
+                              text: "اخر الاخبار",
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     FutureBuilder(
@@ -209,7 +212,8 @@ class Livematchesscoreboard extends StatelessWidget {
           enableInfiniteScroll: false,
           scrollDirection: Axis.horizontal,
           height: 170,
-          autoPlay: true),
+          autoPlay: true,
+          autoPlayAnimationDuration: Duration(seconds: 30)),
       items: livematches.map((i) {
         return Builder(
           builder: (BuildContext context) {

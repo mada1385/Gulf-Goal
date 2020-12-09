@@ -38,13 +38,16 @@ class Newscard extends StatelessWidget {
                       borderRadius: BorderRadius.all(
                         Radius.circular(8.0),
                       ),
-                      child: new Image(
-                          image: new NetworkImageWithRetry(
-                            news.image,
-                          ),
-                          fit: BoxFit.fill,
-                          height: double.infinity,
-                          width: SizeConfig.blockSizeHorizontal * 40)),
+                      child: Hero(
+                        tag: news.image,
+                        child: new Image(
+                            image: new NetworkImageWithRetry(
+                              news.image,
+                            ),
+                            fit: BoxFit.fill,
+                            height: double.infinity,
+                            width: SizeConfig.blockSizeHorizontal * 40),
+                      )),
                   SizedBox(
                     width: 10,
                   ),

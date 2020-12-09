@@ -62,33 +62,35 @@ class _MatchDetailsScreenState extends State<MatchDetailsScreen> {
                       widget.match.fixture.status.league,
                       style: TextStyle(fontSize: 15, color: textcolor),
                     ),
-                    Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Teamcard(
-                            logourl: widget.match.home.logoUrl,
-                            teamname: widget.match.home.name,
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            "${widget.match.goal.home} : ${widget.match.goal.away}",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: accentcolor,
-                              fontSize: SizeConfig.blockSizeVertical * 5,
+                    Container(
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Teamcard(
+                              logourl: widget.match.home.logoUrl,
+                              teamname: widget.match.home.name,
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Teamcard(
-                            logourl: widget.match.away.logoUrl,
-                            teamname: widget.match.away.name,
+                          Expanded(
+                            child: Text(
+                              "${widget.match.goal.home} : ${widget.match.goal.away}",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: accentcolor,
+                                fontSize: SizeConfig.blockSizeVertical * 5,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Teamcard(
+                              logourl: widget.match.away.logoUrl,
+                              teamname: widget.match.away.name,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Flexible(
                         child: SizedBox(

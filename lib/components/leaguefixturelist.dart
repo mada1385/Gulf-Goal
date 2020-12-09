@@ -63,7 +63,7 @@ class _LeaguefixturelistState extends State<Leaguefixturelist> {
             return Fixturelist(
               allmatches: matches,
             );
-          } else if (snapshot.data["error"] != null) {
+          } else  {
             return Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

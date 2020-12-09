@@ -54,6 +54,9 @@ class TrendNewscard extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              )
             ],
           )),
     );
