@@ -19,12 +19,12 @@ class Favoutitesscreen extends StatefulWidget {
 
 class _FavoutitesscreenState extends State<Favoutitesscreen> {
   TextEditingController controller = new TextEditingController();
+  String value = "";
   List<Teams> onSearchTextChanged(String text, List<Teams> fav) {
     List<Teams> _searchResult = [];
     _searchResult.clear();
     if (text.isEmpty) {
-      // setState(() {});
-      return null;
+      return fav;
     }
 
     fav.forEach((userDetail) {
@@ -59,6 +59,11 @@ class _FavoutitesscreenState extends State<Favoutitesscreen> {
                             child: new ListTile(
                               leading: new Icon(Icons.search),
                               title: new TextField(
+                                onChanged: (val) {
+                                  setState(() {
+                                    value = val;
+                                  });
+                                },
                                 controller: controller,
                                 decoration: new InputDecoration(
                                     hintStyle: TextStyle(
@@ -69,12 +74,15 @@ class _FavoutitesscreenState extends State<Favoutitesscreen> {
                               trailing: new IconButton(
                                 icon: new Icon(
                                   Icons.cancel,
-                                  size: controller.text.isEmpty
+                                  size: value == ""
                                       ? 0
                                       : SizeConfig.blockSizeVertical * 3,
                                 ),
                                 onPressed: () {
-                                  controller.clear();
+                                  setState(() {
+                                    controller.clear();
+                                    value = "";
+                                  });
                                 },
                               ),
                             ),
@@ -107,19 +115,10 @@ class _FavoutitesscreenState extends State<Favoutitesscreen> {
                       builder: (context, snapshot) {
                         //the future builder is very intersting to use when you work with api
                         if (snapshot.hasData) {
-                          if (snapshot.hasData) {
-                            if (onSearchTextChanged(
-                                    controller.text, snapshot.data) ==
-                                null)
-                              return Favlist(
-                                favteams: snapshot.data,
-                              );
-                          } else {
-                            return Favlist(
-                              favteams: onSearchTextChanged(
-                                  controller.text, snapshot.data),
-                            );
-                          }
+                          return Favlist(
+                            favteams: onSearchTextChanged(
+                                controller.text, snapshot.data),
+                          );
                         } else {
                           return Expanded(
                             child: Center(

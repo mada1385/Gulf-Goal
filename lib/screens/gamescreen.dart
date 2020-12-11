@@ -24,16 +24,18 @@ class _GamescreenState extends State<Gamescreen> {
 
   onSelect(data) {
     HapticFeedback.lightImpact();
-    Provider.of<Userprovider>(context, listen: false).setdate(data);
-    // Provider.of<Userprovider>(context, listen: false).islive();
-    if (Provider.of<Userprovider>(context, listen: false).gamescreenindex ==
-        0) {
-      Provider.of<Userprovider>(context, listen: false)
-          .loadfavgamesdetailsDetails();
-    } else {
-      Provider.of<Userprovider>(context, listen: false)
-          .loadAllgamesdetailsDetails();
-    }
+    setState(() {
+      Provider.of<Userprovider>(context, listen: false).setdate(data);
+      // Provider.of<Userprovider>(context, listen: false).islive();
+      if (Provider.of<Userprovider>(context, listen: false).gamescreenindex ==
+          0) {
+        Provider.of<Userprovider>(context, listen: false)
+            .loadfavgamesdetailsDetails();
+      } else {
+        Provider.of<Userprovider>(context, listen: false)
+            .loadAllgamesdetailsDetails();
+      }
+    });
   }
 
   onWeekSelect(data) {
