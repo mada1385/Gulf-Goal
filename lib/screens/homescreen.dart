@@ -1,6 +1,7 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gulfgoal/config/colors.dart';
 import 'package:gulfgoal/screens/favouritesscreen.dart';
 import 'package:gulfgoal/screens/gamescreen.dart';
@@ -56,12 +57,12 @@ class _HomescreenState extends State<Homescreen> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
-              icon: Icon(Icons.sports_football),
+              icon: Icon(Icons.sports_soccer),
               title: Text('المباريات'),
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
-              icon: Icon(Icons.new_releases),
+              icon: Icon(FontAwesomeIcons.newspaper),
               title: Text('الاخبار'),
             ),
             BottomNavigationBarItem(

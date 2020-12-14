@@ -60,7 +60,7 @@ class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
                                         "المباريات",
                                         style: TextStyle(
                                           fontFamily: 'cairo',
-                                          fontSize: 25,
+                                          fontSize: 20,
                                           color: leaguetab == 0
                                               ? accentcolor
                                               : Colors.grey,
@@ -98,7 +98,7 @@ class _LeaguesfixturescreenState extends State<Leaguesfixturescreen> {
                                         "جدول الترتيب",
                                         style: TextStyle(
                                           fontFamily: 'cairo',
-                                          fontSize: 25,
+                                          fontSize: 20,
                                           color: leaguetab == 1
                                               ? accentcolor
                                               : Colors.grey,

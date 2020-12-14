@@ -40,6 +40,19 @@ class Newsdetails extends StatelessWidget {
         body: SafeArea(
           child: ListView(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
               Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +61,9 @@ class Newsdetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 20, top: 30),
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                          ),
                           child: Tittletext(
                             data: news.title,
                             size: 22,
@@ -138,7 +153,8 @@ class Newsdetails extends StatelessWidget {
                     news.image,
                   ),
                   fit: BoxFit.fill,
-                  height: 250,
+                  // height: 250,
+                  width: MediaQuery.of(context).size.width,
                 ),
               ),
               SizedBox(

@@ -14,14 +14,12 @@ class Statsscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-        children: [
-          Goalscorer(match: match),
-          Cards(match: match),
-          Stats(match: match),
-        ],
-      ),
+    return Column(
+      children: [
+        Goalscorer(match: match),
+        Cards(match: match),
+        Stats(match: match),
+      ],
     );
   }
 }

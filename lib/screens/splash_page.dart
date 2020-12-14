@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:gulfgoal/config/mediaqueryconfig.dart';
@@ -57,44 +59,36 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  void navigationPage() {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (_) => Homescreen()));
+  void navigationPage() async {
+    // 5s over, navigate to a new page
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Homescreen()));
   }
 
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return ConnectivityWidgetWrapper(
-      offlineWidget: Nointernetscreen(),
-      child: Container(
-        // decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)),
-        child: Container(
-          decoration: BoxDecoration(color: Colors.white),
-          child: SafeArea(
-            child: new Scaffold(
-              body: Column(
-                children: <Widget>[
-                  Container(
-                    color: Color(0xffF2FBF9),
-                    height: SizeConfig.blockSizeVertical * 75,
-                    child: Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Opacity(
-                          opacity: opacity.value,
-                          child: new Image.asset(
-                            'asset/Gulf Goal  splash screen Logo.png',
-                          ),
-                        ),
-                      ),
-                    ),
+    return SafeArea(
+      child: new Scaffold(
+        backgroundColor: Color(0xffF2FBF9),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Opacity(
+                  opacity: opacity.value,
+                  child: new Image.asset(
+                    'asset/Gulf Goal  splash screen Logo.png',
+                    height: 100,
+                    width: 100,
                   ),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

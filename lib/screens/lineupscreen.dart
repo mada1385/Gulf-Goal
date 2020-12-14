@@ -16,6 +16,12 @@ class Lineupscreen extends StatefulWidget {
 
 class _LineupscreenState extends State<Lineupscreen> {
   int buttonindex = 0;
+  List<dynamic> home() {
+    if (buttonindex == 0) {
+      return widget.match.lineup.lineuphome;
+    } else
+      return widget.match.lineup.lineupaway;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,58 +94,52 @@ class _LineupscreenState extends State<Lineupscreen> {
           // SizedBox(
           //   height: 20,
           // ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Container(
-                        height: 75,
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                            blurRadius: 2,
-                            color: Colors.black26,
-                            offset: Offset(0, .75),
-                          )
-                        ], color: Colors.white),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      "${buttonindex == 0 ? widget.match.lineup.lineuphome[index]["lineup_number"] : widget.match.lineup.lineupaway[index]["lineup_number"]} - ",
-                                      style: TextStyle(
-                                          color: textcolor2,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-
-                                  Text(
-                                    buttonindex == 0
-                                        ? widget.match.lineup.lineuphome[index]
-                                            ["lineup_player"]
-                                        : widget.match.lineup.lineupaway[index]
-                                            ["lineup_player"],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Container(
+              child: Column(
+                  children: home().map((e) {
+                return Builder(builder: (BuildContext context) {
+                  return Container(
+                      height: 75,
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          blurRadius: 2,
+                          color: Colors.black26,
+                          offset: Offset(0, .75),
+                        )
+                      ], color: Colors.white),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    "${e["lineup_number"]} - ",
                                     style: TextStyle(
-                                        color: textcolor,
+                                        color: textcolor2,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600),
                                   ),
-                                  // Text(match.lineup.lineuphome[index]["lineup_player"]),
-                                ],
-                              ),
+                                ),
+
+                                Text(
+                                  e["lineup_player"],
+                                  style: TextStyle(
+                                      color: textcolor,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                // Text(match.lineup.lineuphome[index]["lineup_player"]),
+                              ],
                             ),
-                          ],
-                        ));
-                  },
-                  itemCount: widget.match.lineup.lineuphome.length,
-                ),
-              ),
+                          ),
+                        ],
+                      ));
+                });
+              }).toList()),
             ),
           ),
         ],
